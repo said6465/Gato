@@ -1,0 +1,77 @@
+#include<stdio.h>
+#include<stdlib.h>
+void main(){
+char M[3][3], modo;
+int x,y,f,c;
+printf("Bienvenido al juego del gato \n");
+printf("Para jugar P vs P presiona P \n");
+printf("Para jugar P vs C presiona C \n");
+printf("Para Salir del juego preiona E \n");
+scanf("%c",&modo);
+for(x=0;x<3;x++){
+    for(y=0;y<3;y++){
+        M[x][y]=' ';
+        printf("%c",M[x][y]);
+        printf("|");
+        }
+    printf("\n");
+}
+// Player vs Player
+if(modo=='P' || modo=='p'){
+int o,u,Tur,owo;
+Tur=1;
+owo=1;
+while(owo==1){
+    if(Tur==1){
+        do{
+          printf("Jugador 1 \n");
+          printf("digita la fila en la que quieras tirar\n");
+          scanf("%d",&f);
+          printf("digita la columna en la que quieras tirar\n");
+          scanf("%d",&c);
+            if(M[f][c]=='X' || M[f][c]=='O' || f > 2 ||c > 2){
+            printf("\n Espacio ocupado, Ingrese nuevos valores .\n");
+            }
+           }while(M[f][c]=='X' || M[f][c]=='O' || f>2 || c>2);
+
+          M[f][c]='X';
+
+          system("cls");
+          for(x=0;x<3;x++){
+                for(y=0;y<3;y++){
+                printf("|%c|",M[x][y]);
+printf();
+                }
+          printf("\n");
+         }
+       Tur=2;
+    }
+     if(Tur==2){
+        do{
+      printf("Jugador 2 \n");
+      printf("digita la fila en la que quieras tirar\n");
+      scanf("%d",&f);
+      printf("digita la columna en la que quieras tirar\n");
+      scanf("%d",&c);
+        if(M[f][c]=='X' || M[f][c]=='O' || f > 2 ||c > 2){
+         printf("\n Espacio ocupado, Ingrese nuevos valores .\n");
+        }
+        }while(M[f][c]=='X' || M[f][c]=='O' || f>2 || c>2);
+      M[f][c]='O';
+      system("cls");
+            for(x=0;x<3;x++){
+                for(y=0;y<3;y++){
+                printf("[%c]",M[x][y]);
+                }
+            printf("\n");
+            }
+            Tur=1;
+    }
+}
+
+}
+
+return 0;
+
+
+}
